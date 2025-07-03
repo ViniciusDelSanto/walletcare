@@ -262,27 +262,6 @@ user_profile (
 )
 \`\`\`
 
-## 🔄 Atualizações Futuras
-
-### Funcionalidades Planejadas
-- [ ] Backup na nuvem (Google Drive/iCloud)
-- [ ] Compartilhamento de exames via PDF
-- [ ] Lembretes para novos exames
-- [ ] Categorização avançada de exames
-- [ ] Gráficos de evolução de resultados
-- [ ] Integração com calendário
-- [ ] Modo escuro
-- [ ] Exportação de dados
-- [ ] Sincronização entre dispositivos
-- [ ] OCR para extração de texto de exames
-
-### Melhorias Técnicas
-- [ ] Migração para Expo Router
-- [ ] Implementação de testes automatizados
-- [ ] Otimização de performance
-- [ ] Suporte a tablets
-- [ ] Acessibilidade aprimorada
-
 ## 🤝 Contribuição
 
 1. Faça um fork do projeto
@@ -296,20 +275,6 @@ user_profile (
 - Adicione testes para novas funcionalidades
 - Atualize a documentação quando necessário
 - Use commits semânticos
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo \`LICENSE\` para mais detalhes.
-
-## 📞 Suporte
-
-Para suporte técnico ou dúvidas:
-- Abra uma issue no GitHub
-- Entre em contato através do email: suporte@walletcare.app
-
-## 🏆 Créditos
-
-Desenvolvido com ❤️ para facilitar o gerenciamento de exames médicos e promover melhor organização da saúde pessoal.
 
 ### Tecnologias e Bibliotecas
 - React Native Team
