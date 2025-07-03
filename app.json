@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "WalletCare",
+    "slug": "wallet-care",
+    "version": "1.0.0",
+    "sdkVersion": "53.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.walletcare.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Este app precisa acessar a câmera para fotografar exames médicos.",
+        "NSPhotoLibraryUsageDescription": "Este app precisa acessar a galeria para importar imagens de exames médicos."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.walletcare.app",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O app acessa suas fotos para permitir que você importe imagens de exames médicos.",
+          "cameraPermission": "O app acessa sua câmera para permitir que você fotografe exames médicos."
+        }
+      ]
+    ]
+  }
+}

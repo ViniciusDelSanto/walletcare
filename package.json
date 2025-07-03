@@ -1,0 +1,33 @@
+{
+  "name": "wallet-care",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "clear": "expo start --clear"
+  },
+  "dependencies": {
+    "expo": "~53.0.0",
+    "expo-router": "~5.1.2",
+    "expo-status-bar": "~2.2.3",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-screens": "~4.11.1",
+    "react-native-safe-area-context": "5.4.0",
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
+    "@expo/vector-icons": "^14.1.0",
+    "expo-sqlite": "~15.2.13",
+    "expo-image-picker": "~16.1.4",
+    "expo-file-system": "~18.1.11",
+    "react-dom": "19.0.0",
+    "react-native-web": "^0.20.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2"
+  },
+  "private": true
+}
