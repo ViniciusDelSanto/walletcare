@@ -69,7 +69,7 @@ WalletCare é um aplicativo móvel desenvolvido em React Native com Expo para ge
 1. **Clone o repositório**
    \`\`\`bash
    git clone <url-do-repositorio>
-   cd walletcare2
+   cd walletcare
    \`\`\`
 
 2. **Instale as dependências**
@@ -88,39 +88,6 @@ WalletCare é um aplicativo móvel desenvolvido em React Native com Expo para ge
    - Escaneie o QR code com o Expo Go (Android/iOS)
    - Ou execute em emulador com \`npm run android\` ou \`npm run ios\`
 
-## 📁 Estrutura do Projeto
-
-\`\`\`
-walletcare2/
-├── assets/                    # Imagens e ícones
-│   ├── icon.png              # Ícone principal
-│   ├── logo.png              # Logo do app
-│   └── ...                   # Outros assets
-├── components/               # Componentes reutilizáveis
-│   ├── Alert.js             # Sistema de alertas
-│   ├── BottomNavBar.js      # Barra de navegação inferior
-│   ├── ImageViewer.js       # Visualizador de imagens
-│   └── LoadingSpinner.js    # Indicador de carregamento
-├── database/                # Configuração do banco de dados
-│   └── database.js          # Operações SQLite e funções de reset
-├── screens/                 # Telas da aplicação
-│   ├── HomeScreen.js        # Tela inicial com perfil personalizado
-│   ├── ProfileSetupScreen.js # Setup inicial obrigatório
-│   ├── ExamsListScreen.js   # Lista de exames com filtros
-│   ├── ImportExamScreen.js  # Importação de exames
-│   ├── SelectExamScreen.js  # Formulário de exame
-│   ├── ExamDetailsScreen.js # Detalhes do exame
-│   ├── ProfileScreen.js     # Perfil do usuário
-│   └── LoadingScreen.js     # Tela de carregamento
-├── utils/                   # Utilitários
-│   ├── imageUtils.js        # Manipulação de imagens
-│   ├── validation.js        # Validações
-│   └── constants.js         # Constantes da aplicação
-├── App.js                   # Componente principal com lógica de inicialização
-├── app.json                 # Configurações do Expo
-├── package.json             # Dependências do projeto
-└── README.md               # Este arquivo
-\`\`\`
 
 ## 🎯 Como Usar
 
