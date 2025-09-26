@@ -9,6 +9,25 @@ const initDB = async () => {
   return db
 }
 
+const runMigrations = async () => {
+  try {
+    const database = await initDB()
+
+    // Check if description column exists in exams table
+    const tableInfo = await database.getAllAsync("PRAGMA table_info(exams)")
+    const hasDescriptionColumn = tableInfo.some((column) => column.name === "description")
+
+    if (!hasDescriptionColumn) {
+      console.log("Adding description column to exams table...")
+      await database.execAsync("ALTER TABLE exams ADD COLUMN description TEXT")
+      console.log("Description column added successfully")
+    }
+  } catch (error) {
+    console.error("Error running migrations:", error)
+    throw error
+  }
+}
+
 export const initDatabase = async () => {
   try {
     const database = await initDB()
@@ -21,6 +40,7 @@ export const initDatabase = async () => {
         date TEXT NOT NULL,
         clinic TEXT,
         type TEXT DEFAULT 'laboratorial',
+        description TEXT,
         image_data TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -52,6 +72,8 @@ export const initDatabase = async () => {
         updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
       );
     `)
+
+    await runMigrations()
 
     console.log("Database initialized successfully")
   } catch (error) {
@@ -106,8 +128,16 @@ export const insertExam = async (examData) => {
   try {
     const database = await initDB()
     const result = await database.runAsync(
-      "INSERT INTO exams (name, doctor, date, clinic, type, image_data) VALUES (?, ?, ?, ?, ?, ?)",
-      [examData.name, examData.doctor, examData.date, examData.clinic, examData.type, examData.imageData],
+      "INSERT INTO exams (name, doctor, date, clinic, type, description, image_data) VALUES (?, ?, ?, ?, ?, ?, ?)",
+      [
+        examData.name,
+        examData.doctor,
+        examData.date,
+        examData.clinic,
+        examData.type,
+        examData.description,
+        examData.imageData,
+      ],
     )
     return result.lastInsertRowId
   } catch (error) {
@@ -142,8 +172,17 @@ export const updateExam = async (id, examData) => {
   try {
     const database = await initDB()
     const result = await database.runAsync(
-      "UPDATE exams SET name = ?, doctor = ?, date = ?, clinic = ?, type = ?, image_data = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-      [examData.name, examData.doctor, examData.date, examData.clinic, examData.type, examData.imageData, id],
+      "UPDATE exams SET name = ?, doctor = ?, date = ?, clinic = ?, type = ?, description = ?, image_data = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
+      [
+        examData.name,
+        examData.doctor,
+        examData.date,
+        examData.clinic,
+        examData.type,
+        examData.description,
+        examData.imageData,
+        id,
+      ],
     )
     return result
   } catch (error) {

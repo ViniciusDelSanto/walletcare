@@ -28,6 +28,7 @@ export default function SelectExamScreen({ navigation, route }) {
     date: new Date().toISOString().split("T")[0],
     clinic: "",
     type: "laboratorial",
+    description: "", // Added description field to form state
   })
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState({})
@@ -49,6 +50,7 @@ export default function SelectExamScreen({ navigation, route }) {
           date: exam.date || new Date().toISOString().split("T")[0],
           clinic: exam.clinic || "",
           type: exam.type || "laboratorial",
+          description: exam.description || "", // Added description to loaded data
         })
       }
     } catch (error) {
@@ -223,6 +225,19 @@ export default function SelectExamScreen({ navigation, route }) {
                 </TouchableOpacity>
               </View>
             </View>
+
+            <View style={styles.inputGroup}>
+              <Text style={styles.label}>Descrição</Text>
+              <TextInput
+                style={[styles.input, styles.textArea]}
+                placeholder="Descreva detalhes sobre o exame, observações, resultados, etc."
+                value={formData.description}
+                onChangeText={(value) => handleInputChange("description", value)}
+                multiline={true}
+                numberOfLines={4}
+                textAlignVertical="top"
+              />
+            </View>
           </View>
 
           {/* Botões de ação */}
@@ -368,5 +383,9 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 16,
     marginLeft: 8,
+  },
+  textArea: {
+    height: 100,
+    paddingTop: 15,
   },
 })

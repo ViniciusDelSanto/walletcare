@@ -64,7 +64,7 @@ export default function ExamDetailsScreen({ navigation, route }) {
   const handleShareExam = async () => {
     try {
       const shareContent = {
-        message: `Exame: ${exam.name}\nData: ${formatDate(exam.date)}${exam.doctor ? `\nMédico: Dr(a). ${exam.doctor}` : ""}${exam.clinic ? `\nClínica: ${exam.clinic}` : ""}`,
+        message: `Exame: ${exam.name}\nData: ${formatDate(exam.date)}${exam.doctor ? `\nMédico: Dr(a). ${exam.doctor}` : ""}${exam.clinic ? `\nClínica: ${exam.clinic}` : ""}${exam.description ? `\nDescrição: ${exam.description}` : ""}`,
         title: "Compartilhar Exame",
       }
 
@@ -183,6 +183,13 @@ export default function ExamDetailsScreen({ navigation, route }) {
             </View>
           </View>
         </View>
+
+        {exam.description && (
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.sectionTitle}>Descrição</Text>
+            <Text style={styles.descriptionText}>{exam.description}</Text>
+          </View>
+        )}
 
         {/* Imagem do exame */}
         {imageUri && (
@@ -342,6 +349,23 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 16,
     marginLeft: 8,
+  },
+  descriptionContainer: {
+    backgroundColor: "#fff",
+    margin: 20,
+    marginTop: 0,
+    borderRadius: 15,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  descriptionText: {
+    fontSize: 16,
+    color: "#333",
+    lineHeight: 24,
   },
   errorContainer: {
     flex: 1,
