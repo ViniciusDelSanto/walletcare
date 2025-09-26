@@ -1,5 +1,5 @@
 import * as ImagePicker from "expo-image-picker"
-import * as FileSystem from "expo-file-system"
+import * as FileSystem from "expo-file-system/legacy"
 
 export const requestPermissions = async () => {
   const { status: cameraStatus } = await ImagePicker.requestCameraPermissionsAsync()
@@ -61,9 +61,18 @@ export const pickImage = async () => {
 
 export const imageToBase64 = async (uri) => {
   try {
+    if (!uri) {
+      throw new Error("URI da imagem não fornecida")
+    }
+
+    if (!FileSystem || !FileSystem.readAsStringAsync) {
+      throw new Error("FileSystem não está disponível")
+    }
+
     const base64 = await FileSystem.readAsStringAsync(uri, {
-      encoding: FileSystem.EncodingType.Base64,
+      encoding: "base64",
     })
+
     return base64
   } catch (error) {
     console.error("Erro ao converter imagem para base64:", error)
@@ -73,10 +82,19 @@ export const imageToBase64 = async (uri) => {
 
 export const base64ToUri = async (base64Data, filename = "temp_image.jpg") => {
   try {
+    if (!base64Data) {
+      throw new Error("Dados base64 não fornecidos")
+    }
+
+    if (!FileSystem || !FileSystem.writeAsStringAsync || !FileSystem.documentDirectory) {
+      throw new Error("FileSystem não está disponível")
+    }
+
     const fileUri = FileSystem.documentDirectory + filename
     await FileSystem.writeAsStringAsync(fileUri, base64Data, {
-      encoding: FileSystem.EncodingType.Base64,
+      encoding: "base64",
     })
+
     return fileUri
   } catch (error) {
     console.error("Erro ao converter base64 para URI:", error)

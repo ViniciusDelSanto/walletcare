@@ -3,11 +3,9 @@
     "name": "WalletCare",
     "slug": "wallet-care",
     "version": "1.0.0",
-    "sdkVersion": "53.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": false,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -45,7 +43,10 @@
           "photosPermission": "O app acessa suas fotos para permitir que você importe imagens de exames médicos.",
           "cameraPermission": "O app acessa sua câmera para permitir que você fotografe exames médicos."
         }
-      ]
+      ],
+      "expo-router",
+      "expo-sqlite",
+      "expo-font"
     ]
   }
 }
