@@ -11,13 +11,16 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.walletcare.app",
       "infoPlist": {
         "NSCameraUsageDescription": "Este app precisa acessar a câmera para fotografar exames médicos.",
-        "NSPhotoLibraryUsageDescription": "Este app precisa acessar a galeria para importar imagens de exames médicos."
+        "NSPhotoLibraryUsageDescription": "Este app precisa acessar a galeria para importar imagens de exames médicos.",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -29,7 +32,8 @@
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
-        "android.permission.WRITE_EXTERNAL_STORAGE"
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
       ]
     },
     "web": {
@@ -47,6 +51,12 @@
       "expo-router",
       "expo-sqlite",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1a00554a-6019-4412-ba6b-13ec12e1369e"
+      }
+    }
   }
 }
